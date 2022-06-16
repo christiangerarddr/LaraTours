@@ -41,7 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/password', PasswordController::class);
 
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::apiResource('company', CompanyController::class);
 });
 Route::get('/user', UserController::class);
-Route::apiResource('company', CompanyController::class);
 
