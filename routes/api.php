@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\ToursController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', RegisterController::class);
     Route::post('/forgot-password', ForgotPasswordController::class);
     Route::post('/reset-password', ResetPasswordController::class);
-
-    // guest verification (temporary auth)
-    // Route::post('/verify-email/{id}/{hash}', [VerificationController::class, 'verify'])->name('verify');
-    // Route::post('/verify-resend', [VerificationController::class, 'resend']);
 });
 
 Route::post('/verify-email/{id}/{hash}', [VerificationController::class, 'verify'])->name('verify');
@@ -43,5 +40,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('company', CompanyController::class);
 });
+Route::apiResource('tour', ToursController::class);
+Route::delete('/tour/date/{tourDate}', [ToursController::class, 'destroyDate'])->name('tour.date.destroy');
 Route::get('/user', UserController::class);
-

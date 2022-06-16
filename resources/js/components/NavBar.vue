@@ -56,12 +56,12 @@
                         <div class="flex-shrink-0 flex items-center">
                             <img
                                 class="block lg:hidden h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                                src="img/LaraToursLogoWhite.png"
                                 alt="Workflow"
                             />
                             <img
                                 class="hidden lg:block h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                                src="img/LaraToursLogoWhite.png"
                                 alt="Workflow"
                             />
                         </div>
@@ -93,6 +93,15 @@
                                 :to="{ name: 'company' }"
                             >
                                 Company
+                            </router-link>
+
+                            <router-link
+                                active-class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                v-if="user"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                :to="{ name: 'tours' }"
+                            >
+                                Tours
                             </router-link>
                         </div>
                     </div>
@@ -244,6 +253,14 @@
                     active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                     Company
+                </router-link>
+
+                <router-link
+                    :to="{ name: 'tours' }"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                    Tours
                 </router-link>
             </div>
         </div>

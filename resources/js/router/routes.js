@@ -12,6 +12,9 @@ const Register = () => import("../views/auth/Register.vue");
 const CompanyIndex = () => import("../views/company/Index.vue");
 const CompanyCreate = () => import("../views/company/Create.vue");
 const CompanyEdit = () => import("../views/company/Edit.vue");
+const ToursIndex = () => import("../views/tours/Index.vue");
+const ToursCreate = () => import("../views/tours/Create.vue");
+const ToursEdit = () => import("../views/tours/Edit.vue");
 
 export default [
     {
@@ -127,6 +130,22 @@ export default [
         path: "/company/:id/edit",
         component: CompanyEdit,
         name: "company.edit",
+        props: true,
+    },
+    {
+        path: "/tours",
+        component: ToursIndex,
+        name: "tours",
+    },
+    {
+        path: "/tours/create",
+        component: ToursCreate,
+        name: "tours.create",
+    },
+    {
+        path: "/tours/:id/edit",
+        component: ToursEdit,
+        name: "tours.edit",
         props: true,
     },
 ];

@@ -6,7 +6,7 @@
             <div
                 class="mb-6 text-center tracking-wider text-8xl sm:mb-8 sm:text-8xl"
             >
-                Laravel Vue
+                <img src="img/LaraToursLogo.png" />
             </div>
         </div>
     </div>
