@@ -46,7 +46,7 @@
                                 v-model="booking.tour_date"
                             >
                                 <template
-                                    v-for="tour_date in tour.tour_dates"
+                                    v-for="tour_date in tour.enabled_tour_dates"
                                     :key="tour_date.id"
                                 >
                                     <option>

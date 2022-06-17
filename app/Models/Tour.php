@@ -12,11 +12,16 @@ class Tour extends Model
 
     protected $fillable = ['name', 'itenerary', 'status'];
 
-    protected $with = ['tourDates'];
+    protected $with = ['tourDates', 'enabledTourDates'];
 
     public function tourDates()
     {
         return $this->hasMany(TourDate::class);
+    }
+
+    public function enabledTourDates()
+    {
+        return $this->hasMany(TourDate::class)->where('status', true);
     }
 
     public function getStatusAttribute($value)

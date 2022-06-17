@@ -43,12 +43,13 @@
                                 class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                 name="tour_date"
                                 id="tour_date"
+                                v-model="booking.tour_date"
                             >
                                 <option selected>
                                     {{ booking.tour_date }}
                                 </option>
                                 <template
-                                    v-for="tour_date in assigned_tour.tour_dates"
+                                    v-for="tour_date in assigned_tour.enabled_tour_dates"
                                     :key="tour_date.id"
                                 >
                                     <option>
