@@ -4,23 +4,13 @@
     >
         <div class="flex place-content-start mb-4">
             <div
-                class="px-4 py-2 mr-2 text-white bg-indigo-600 hover:bg-indigo-700 cursor-pointer"
-            >
-                <router-link
-                    :to="{ name: 'tours.create' }"
-                    class="text-sm font-medium"
-                >
-                    Create Tours
-                </router-link>
-            </div>
-            <div
                 class="px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 cursor-pointer"
             >
                 <router-link
-                    :to="{ name: 'bookings' }"
+                    :to="{ name: 'tours' }"
                     class="text-sm font-medium"
                 >
-                    Booking
+                    Tours
                 </router-link>
             </div>
         </div>
@@ -32,14 +22,28 @@
                         <span
                             class="text-xs font-medium tracking-wider leading-4 text-left text-gray-500 uppercase"
                         >
-                            Tour Id</span
+                            Booking Id</span
                         >
                     </th>
                     <th class="px-6 py-3 bg-gray-50">
                         <span
                             class="text-xs font-medium tracking-wider leading-4 text-left text-gray-500 uppercase"
                         >
-                            Tour Name</span
+                            Tour name</span
+                        >
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50">
+                        <span
+                            class="text-xs font-medium tracking-wider leading-4 text-left text-gray-500 uppercase"
+                        >
+                            Tour date</span
+                        >
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50">
+                        <span
+                            class="text-xs font-medium tracking-wider leading-4 text-left text-gray-500 uppercase"
+                        >
+                            Number of passengers</span
                         >
                     </th>
                     <th class="px-6 py-3 bg-gray-50"></th>
@@ -47,7 +51,7 @@
             </thead>
 
             <tbody class="bg-white divide-y divide-gray-200 divide-solid">
-                <template v-for="item in tours" :key="item.id">
+                <template v-for="item in bookings" :key="item.id">
                     <tr class="bg-white">
                         <td
                             class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap"
@@ -57,7 +61,17 @@
                         <td
                             class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap"
                         >
-                            {{ item.name }}
+                            {{ item.tour.name }}
+                        </td>
+                        <td
+                            class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap"
+                        >
+                            {{ item.tour_date }}
+                        </td>
+                        <td
+                            class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap"
+                        >
+                            {{ item.passengers_count }}
                         </td>
                         <td
                             class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap w-80"
@@ -65,21 +79,12 @@
                             <div class="ml-auto">
                                 <router-link
                                     :to="{
-                                        name: 'tours.edit',
+                                        name: 'bookings.edit',
                                         params: { id: item.id },
                                     }"
                                     class="mr-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                                 >
                                     Edit
-                                </router-link>
-                                <router-link
-                                    :to="{
-                                        name: 'tours.bookings.create',
-                                        params: { id: item.id },
-                                    }"
-                                    class="mr-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
-                                >
-                                    Bookings
                                 </router-link>
                             </div>
                         </td>
@@ -91,17 +96,17 @@
 </template>
 
 <script>
-import useTours from "../../composables/tours";
+import useBookings from "../../composables/bookings";
 import { onMounted } from "vue";
 
 export default {
     setup() {
-        const { tours, getTours } = useTours();
+        const { bookings, getBookings } = useBookings();
 
-        onMounted(getTours);
+        onMounted(getBookings);
 
         return {
-            tours,
+            bookings,
         };
     },
 };

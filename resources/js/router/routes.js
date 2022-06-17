@@ -15,6 +15,9 @@ const CompanyEdit = () => import("../views/company/Edit.vue");
 const ToursIndex = () => import("../views/tours/Index.vue");
 const ToursCreate = () => import("../views/tours/Create.vue");
 const ToursEdit = () => import("../views/tours/Edit.vue");
+const BookingIndex = () => import("../views/booking/Index.vue");
+const BookingCreate = () => import("../views/booking/Create.vue");
+const BookingEdit = () => import("../views/booking/Edit.vue");
 
 export default [
     {
@@ -146,6 +149,23 @@ export default [
         path: "/tours/:id/edit",
         component: ToursEdit,
         name: "tours.edit",
+        props: true,
+    },
+    {
+        path: "/bookings",
+        component: BookingIndex,
+        name: "bookings",
+    },
+    {
+        path: "/tours/:id/bookings/create",
+        component: BookingCreate,
+        name: "tours.bookings.create",
+        props: true,
+    },
+    {
+        path: "/bookings/:id/edit",
+        component: BookingEdit,
+        name: "bookings.edit",
         props: true,
     },
 ];

@@ -11,6 +11,7 @@ use App\Http\Controllers\VerificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\ToursController;
+use App\Http\Controllers\Api\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('company', CompanyController::class);
 });
 Route::apiResource('tour', ToursController::class);
+Route::apiResource('booking', BookingController::class);
 Route::delete('/tour/date/{tourDate}', [ToursController::class, 'destroyDate'])->name('tour.date.destroy');
 Route::get('/user', UserController::class);

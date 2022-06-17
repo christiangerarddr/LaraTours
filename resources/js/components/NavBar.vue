@@ -72,36 +72,18 @@
                                 active-class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                                 v-if="user"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                :to="{ name: 'home' }"
-                            >
-                                Home
-                            </router-link>
-
-                            <router-link
-                                active-class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                v-if="user"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                :to="{ name: 'test' }"
-                            >
-                                Test
-                            </router-link>
-
-                            <router-link
-                                active-class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                v-if="user"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                :to="{ name: 'company' }"
-                            >
-                                Company
-                            </router-link>
-
-                            <router-link
-                                active-class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                v-if="user"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                 :to="{ name: 'tours' }"
                             >
                                 Tours
+                            </router-link>
+
+                            <router-link
+                                active-class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                v-if="user"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                :to="{ name: 'bookings' }"
+                            >
+                                Booking
                             </router-link>
                         </div>
                     </div>
@@ -230,37 +212,20 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div v-if="dropNav" @click="dropNav = !dropNav" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <router-link
-                    :to="{ name: 'home' }"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                    Home
-                </router-link>
-
-                <router-link
-                    :to="{ name: 'test' }"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                    Test
-                </router-link>
-
-                <router-link
-                    :to="{ name: 'company' }"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                    Company
-                </router-link>
-
                 <router-link
                     :to="{ name: 'tours' }"
                     class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                     active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                     Tours
+                </router-link>
+
+                <router-link
+                    :to="{ name: 'bookings' }"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    active-class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                    Booking
                 </router-link>
             </div>
         </div>

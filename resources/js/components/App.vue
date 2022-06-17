@@ -3,7 +3,7 @@
         <div>
             <nav-bar />
         </div>
-        <div>
+        <div class="container mx-auto">
             <router-view class="p-6" v-slot="{ Component }">
                 <component :is="Component" />
             </router-view>
