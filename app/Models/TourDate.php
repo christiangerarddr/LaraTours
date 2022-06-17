@@ -21,4 +21,8 @@ class TourDate extends Model
         return $this->belongsTo(Tour::class);
     }
 
+    public function getStatusAttribute($value)
+    {
+        return ($value) ? "Enabled" : "Disabled" ;
+    }
 }

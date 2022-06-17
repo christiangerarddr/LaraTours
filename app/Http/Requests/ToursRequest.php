@@ -26,7 +26,6 @@ class ToursRequest extends FormRequest
         return [
             'name'          => ['required', 'string'],
             'itenerary'     => ['required', 'string'],
-            'status'        => ['boolean'],
             'tour_dates.*'  => ['required'] 
         ];
     }

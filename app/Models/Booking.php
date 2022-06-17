@@ -33,4 +33,18 @@ class Booking extends Model
     {
         return $this->hasMany(BookingPassenger::class)->count();
     }
+    public function getStatusAttribute($value)
+    {
+        switch ($value) {
+            case $value == 1:
+                return "Confirmed";
+                break;
+            case $value == 2:
+                return "Submitted";
+                break;
+            case $value == 0:
+                return "Cancelled";
+                break;
+        }
+    }
 }

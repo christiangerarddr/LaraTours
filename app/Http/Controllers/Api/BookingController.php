@@ -22,8 +22,7 @@ class BookingController extends Controller
 
         $booking = Booking::create([
             'tour_date' => $request->tour_date, 
-            'tour_id' => $request->tour_id, 
-            'status' => $request->status
+            'tour_id' => $request->tour_id
         ]);
 
         foreach ($request->passengers as $key => $value) {
@@ -35,8 +34,7 @@ class BookingController extends Controller
                 'email'      => $value['email'], 
                 'mobile'     => $value['mobile'], 
                 'passport'   => $value['passport'], 
-                'birth_date' => $value['birth_date'], 
-                'status'     => $value['status']
+                'birth_date' => $value['birth_date']
             ]);
 
             if(!isset($value['id'])) {
@@ -72,8 +70,7 @@ class BookingController extends Controller
                 'email'      => $value['email'], 
                 'mobile'     => $value['mobile'], 
                 'passport'   => $value['passport'], 
-                'birth_date' => $value['birth_date'], 
-                'status'     => $value['status']
+                'birth_date' => $value['birth_date']
             ]);
 
             if(!isset($value['id'])) {

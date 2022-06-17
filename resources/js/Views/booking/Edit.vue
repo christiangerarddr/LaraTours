@@ -66,29 +66,6 @@
                     </div>
                 </div>
 
-                <div class="relative z-0 w-full mb-6 group">
-                    <div class="flex justify-start">
-                        <div class="mb-3 xl:w-96">
-                            <select
-                                class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                name="status"
-                                id="status"
-                                required
-                                v-model="booking.status"
-                            >
-                                <option :value="1">Submitted</option>
-                                <option :value="0">Cancelled</option>
-                            </select>
-                            <label
-                                for="status"
-                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                                Status
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -387,7 +364,6 @@ export default {
     methods: {
         addPassengerInput: function () {
             this.booking.passengers.push({
-                status: 1,
                 pivot: {
                     special_request: "",
                 },

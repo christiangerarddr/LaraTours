@@ -27,7 +27,6 @@ class BookingRequest extends FormRequest
             'passengers.*'  => ['required'],
             'passengers.*'  => ['required'],
             'tour_date'     => ['required', 'string'],
-            'status'        => ['boolean'],
             'passengers.*.pivot.special_request' => ['required', 'string'],
             'passengers.*.given_name' => ['required', 'string'],
             'passengers.*.birth_date' => ['required', 'date'],

@@ -18,4 +18,9 @@ class Tour extends Model
     {
         return $this->hasMany(TourDate::class);
     }
+
+    public function getStatusAttribute($value)
+    {
+        return ($value) ? "Draft" : "Public" ;
+    }
 }

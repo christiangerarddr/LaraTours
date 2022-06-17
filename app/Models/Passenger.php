@@ -10,4 +10,9 @@ class Passenger extends Model
     use HasFactory;
 
     protected $fillable = ['given_name', 'surname', 'email', 'mobile', 'passport', 'birth_date', 'status'];
+
+    public function getStatusAttribute($value)
+    {
+        return ($value) ? "Draft" : "Public" ;
+    }
 }
