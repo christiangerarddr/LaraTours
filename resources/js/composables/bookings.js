@@ -18,7 +18,7 @@ export default function useBooking() {
         let response = await axios.get("/api/booking/" + id);
         booking.value = {
             ...response.data.data,
-            removedPassengers: [],
+            removed_passengers: [],
         };
         assigned_tour.value = response.data.data.tour;
     };

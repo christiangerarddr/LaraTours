@@ -34,8 +34,8 @@ class BookingRequest extends FormRequest
             'passengers.*.surname' => ['required', 'string'],
             'passengers.*.mobile' => ['required', 'string'],
             'passengers.*.email' => ['required', 'email'],
-            'removedPassenger.*.id' => ['required'],
-            'removedPassenger' => ['array'],
+            'removed_passengers.*.id' => ['required'],
+            'removed_passengers' => ['array'],
         ];
     }
 }

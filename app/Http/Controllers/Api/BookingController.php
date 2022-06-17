@@ -86,7 +86,7 @@ class BookingController extends Controller
 
         }
 
-        foreach ($request->removedPassengers as $key => $value) {
+        foreach ($request->removed_passengers as $key => $value) {
             $booking->passengers()->detach($value["id"]);
         }
         

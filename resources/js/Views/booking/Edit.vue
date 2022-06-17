@@ -377,7 +377,7 @@ export default {
         },
         removePassengerInput: function (passenger, index) {
             if (passenger.id) {
-                this.booking.removedPassengers.push(passenger);
+                this.booking.removed_passengers.push(passenger);
             }
             this.booking.passengers.splice(index, 1);
         },
