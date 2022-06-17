@@ -10,19 +10,11 @@ class TourDate extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'date' => 'date:Y-m-d'
-    ];
-
-    protected $fillable = ['tour_id', 'date', 'status'];
+    protected $fillable = ['tour_id', 'date'];
 
     public function tour()
     {
         return $this->belongsTo(Tour::class);
     }
 
-    public function getStatusAttribute($value)
-    {
-        return ($value) ? "Enabled" : "Disabled" ;
-    }
 }

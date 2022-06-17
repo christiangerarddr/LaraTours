@@ -16,7 +16,7 @@ class CreateTourDatesTable extends Migration
         Schema::create('tour_dates', function (Blueprint $table) {
             $table->tinyIncrements('id');
             $table->unsignedTinyInteger('tour_id');
-            $table->dateTime('date');
+            $table->date('date');
             $table->boolean('status')->default(true);
             $table->foreign('tour_id')->references('id')->on('tours');
             $table->timestamps();

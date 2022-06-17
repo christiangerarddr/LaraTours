@@ -111,16 +111,40 @@
                                         <td>
                                             <button
                                                 @click.prevent="
-                                                    remoteDateInput(index);
-                                                    deleteTourDate(item.id);
+                                                    removeOrToggleDateInput(
+                                                        item,
+                                                        index
+                                                    )
+                                                "
+                                                v-if="
+                                                    item.status ||
+                                                    !item.created_at
                                                 "
                                                 class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:red-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:red-blue-800"
                                             >
-                                                <span v-if="item.created_at">
-                                                    Delete
+                                                <span v-if="item.status">
+                                                    Disble
                                                 </span>
 
-                                                <span v-else> Remove </span>
+                                                <span v-if="!item.created_at">
+                                                    Remove
+                                                </span>
+                                            </button>
+
+                                            <button
+                                                @click.prevent="
+                                                    removeOrToggleDateInput(
+                                                        item,
+                                                        index
+                                                    )
+                                                "
+                                                v-if="
+                                                    item.created_at &&
+                                                    !item.status
+                                                "
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:blue-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:blue-blue-800"
+                                            >
+                                                <span> Enable </span>
                                             </button>
                                         </td>
                                     </tr>
@@ -185,8 +209,13 @@ export default {
         addDateInput: function () {
             this.tour.tour_dates.push({});
         },
-        remoteDateInput: function (index) {
-            this.tour.tour_dates.splice(index, 1);
+        removeOrToggleDateInput: function (tourDate, index) {
+            if (!tourDate.id) {
+                this.tour.tour_dates.splice(index, 1);
+            } else {
+                this.tour.tour_dates[index]["status"] =
+                    !this.tour.tour_dates[index]["status"];
+            }
         },
     },
 };
