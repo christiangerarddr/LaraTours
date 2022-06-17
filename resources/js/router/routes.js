@@ -9,9 +9,6 @@ const ForgotPassword = () => import("../views/auth/ForgotPassword.vue");
 const ResetPassword = () => import("../views/auth/ResetPassword.vue");
 const VerifyEmail = () => import("../views/auth/VerifyEmail.vue");
 const Register = () => import("../views/auth/Register.vue");
-const CompanyIndex = () => import("../views/company/Index.vue");
-const CompanyCreate = () => import("../views/company/Create.vue");
-const CompanyEdit = () => import("../views/company/Edit.vue");
 const ToursIndex = () => import("../views/tours/Index.vue");
 const ToursCreate = () => import("../views/tours/Create.vue");
 const ToursEdit = () => import("../views/tours/Edit.vue");
@@ -117,23 +114,7 @@ export default [
     },
     {
         path: "/:pathMatch(.*)*",
-        redirect: "/home",
-    },
-    {
-        path: "/company",
-        component: CompanyIndex,
-        name: "company",
-    },
-    {
-        path: "/company/create",
-        component: CompanyCreate,
-        name: "company.create",
-    },
-    {
-        path: "/company/:id/edit",
-        component: CompanyEdit,
-        name: "company.edit",
-        props: true,
+        redirect: "/",
     },
     {
         path: "/tours",

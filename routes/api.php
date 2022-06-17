@@ -37,11 +37,9 @@ Route::post('/verify-resend', [VerificationController::class, 'resend']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/profile', ProfileController::class);
     Route::patch('/password', PasswordController::class);
-
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::apiResource('company', CompanyController::class);
+    Route::apiResource('tour', ToursController::class);
+    Route::apiResource('booking', BookingController::class);
+    Route::delete('/tour/date/{tourDate}', [ToursController::class, 'destroyDate'])->name('tour.date.destroy');
 });
-Route::apiResource('tour', ToursController::class);
-Route::apiResource('booking', BookingController::class);
-Route::delete('/tour/date/{tourDate}', [ToursController::class, 'destroyDate'])->name('tour.date.destroy');
 Route::get('/user', UserController::class);
